@@ -1,11 +1,10 @@
-const http = require('http')
+const express = require('express')
+const app = express()
 
-const server = http.createServer((req, res) => {
-  res.status = 200
-  res.setHeader('Content-Type', 'text/plain')
-  res.end('Hello world no Express!!!')
+app.get('/', (req,res) => {
+  res.send('<h1>Hi we got the response!!!</h1>')
 })
 
-server.listen(3000, () => {
-  console.log('Server 3000 working')
+app.listen(3000, () => {
+  console.log('Serever on port 3000 with express!!')
 })
