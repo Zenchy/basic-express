@@ -2,11 +2,6 @@ const express = require('express')
 const morgan = require('morgan')
 const app = express()
 
-// function logger (req, res, next){
-//   console.log(`Route receive: ${req.protocol}://${req.get('host')}${req.originalUrl}`)
-//   next()
-// }
-
 app.use(express.json())
 
 app.use(morgan('dev'))
@@ -16,14 +11,10 @@ app.use('/user', (req,res, next) => {
   next()
 })
 
-app.get('/', (req,res) => {
-  res.send('<h1>Hi we got the response!!!</h1>')
-})
-
 app.get('/user', (req, res) => {
   res.json({
     username: 'Zenchy',
-    lastname: 'poderoso'
+    lastname: 'poderoso yes'
   })
 })
 
@@ -61,6 +52,8 @@ app.delete('/delete', (req, res) => {
 app.get('/contact', (req, res) => {
   res.send('This is my contact in the net')
 })
+
+app.use(express.static('public'))
 
 app.listen(3000, () => {
   console.log('Serever on port 3000 with express now with nodemon too!!')
