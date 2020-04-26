@@ -1,10 +1,18 @@
 const express = require('express')
+const morgan = require('morgan')
 const app = express()
+
+// function logger (req, res, next){
+//   console.log(`Route receive: ${req.protocol}://${req.get('host')}${req.originalUrl}`)
+//   next()
+// }
 
 app.use(express.json())
 
+app.use(morgan('dev'))
+
 app.use('/user', (req,res, next) => {
-  console.log('Send /user >>>>> OK')
+  console.log('Send /user ---> OK')
   next()
 })
 
