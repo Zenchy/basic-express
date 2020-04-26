@@ -1,0 +1,32 @@
+{
+  "name": "basic-express",
+  "version": "0.0.1",
+  "description": "This is a basic project to check express functionality",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Zenchy/basic-express.git"
+  },
+  "keywords": [
+    "express",
+    "basic",
+    "nodejs"
+  ],
+  "author": "Zenchy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zenchy/basic-express/issues"
+  },
+  "homepage": "https://github.com/Zenchy/basic-express#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
