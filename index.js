@@ -2,6 +2,12 @@ const express = require('express')
 const morgan = require('morgan')
 const app = express()
 
+//Settings
+app.set('AppName', 'Zenchy basic express')
+app.set('port', 3000)
+app.set('view engine', 'ejs')
+
+//Middlewares
 app.use(express.json())
 
 app.use(morgan('dev'))
@@ -9,6 +15,13 @@ app.use(morgan('dev'))
 app.use('/user', (req,res, next) => {
   console.log('Send /user ---> OK')
   next()
+})
+
+//Routes
+
+app.get('/', (req, res) =>{
+  const datas = [{name:'Alvaro'},{name:'Zency'},{name:'Corral'},{name:'YOOOO'}]
+  res.render('index.ejs', {pipol: datas})
 })
 
 app.get('/user', (req, res) => {
@@ -55,6 +68,7 @@ app.get('/contact', (req, res) => {
 
 app.use(express.static('public'))
 
-app.listen(3000, () => {
-  console.log('Serever on port 3000 with express now with nodemon too!!')
+app.listen(app.get('port'), () => {
+  console.log(app.get('AppName'))
+  console.log('Serever in the port:', app.get('port'))
 })
